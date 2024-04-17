@@ -1,13 +1,18 @@
 <script>
+    import CardList from './CardList.vue';
+
     export default {
-        name: "AppMain"
+        name: "AppMain",
+        components: {
+            CardList
+        }
     }
 </script>
 
 <template>
     <main>
         <div class="container">
-            <div class="row"></div>
+            <CardList></CardList>
         </div>
     </main>
 </template>
@@ -17,5 +22,10 @@
 main {
     background-color: orange;
     height: 100vh;
+    padding: 10px;
+    
+    .container {
+        background-color: white;
+    }
 }
 </style>
