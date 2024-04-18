@@ -3,11 +3,13 @@
     import { store } from './store.js';
     import AppHeader from './components/AppHeader.vue';
     import AppMain from './components/AppMain.vue';
+    import AppSearch from './components/AppSearch.vue';
 
     export default {
         components: {
             AppHeader,
-            AppMain
+            AppMain,
+            AppSearch
         },
         data () {
            return {
@@ -19,8 +21,13 @@
             // Preparo i parametri della query, per esempio
             const queryParams = {
                 num: 20,
-                offset: 0 
+                offset: 0
             };
+
+            if (store.selectedArchetype !== ''){
+                queryParams.archetype = store.selectedArchetype;
+            }
+
             //Faccio la chiamata axios con anche i parametri
             axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
                 params:queryParams
